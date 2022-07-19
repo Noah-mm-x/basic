@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './utils/element'
+import '@css/common.scss'
 import { post, get } from '@utils/http.js'
 
 Vue.config.productionTip = false

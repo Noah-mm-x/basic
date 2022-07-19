@@ -8,8 +8,9 @@
     <div
       id="chart"
       ref="chart"
-      style="width: 100%;height:400px;"
+      style="width: 100px;height:400px;"
     />
+    <div class="box">hhhh</div>
   </div>
 </template>
 
@@ -86,3 +87,11 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+.box{
+  width: 100px;
+  height: 100px;
+  background: coral;
+  padding: 10px;
+}
+</style>

@@ -26,6 +26,7 @@ module.exports = defineConfig({
       .set('@assets', resolve('src/assets'))
       .set('@components', resolve('src/components'))
       .set('@img', resolve('src/assets/img/'))
+      .set('@css', resolve('src/assets/css/'))
       .set('@utils', resolve('src/utils'))
     config.module
       .rule('vue')

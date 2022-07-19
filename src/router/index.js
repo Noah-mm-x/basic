@@ -2,12 +2,19 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+const IndexView = import(/* webpackChunkName: "index" */ '../views/Index/IndexView.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'index',
+    component: IndexView
+  },
+  {
+    path: '/demo',
+    name: 'demo',
     component: HomeView
   },
   {
