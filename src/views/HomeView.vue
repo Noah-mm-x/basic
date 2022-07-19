@@ -14,6 +14,14 @@
 export default {
   name: 'HomeView',
   components: {
+  },
+  async mounted () {
+    console.log(11, this.$post)
+    const params = {
+      a: 1
+    }
+    const data = await this.$post('baid', params)
+    console.log(data)
   }
 }
 </script>
