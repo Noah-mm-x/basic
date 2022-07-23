@@ -98,6 +98,9 @@ export default {
   height: 60px;
   padding-left: 48px;
   padding-right: 26px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px -1px rgba(235, 238, 245, 1) inset;
+  z-index: 999;
   .left-group-wrap {
     display: flex;
     justify-content: flex-start;
@@ -194,7 +197,7 @@ export default {
         align-items: center;
         width: 150px;
         height: 100%;
-        ::v-deep input {
+        :deep(input) {
           height: 30px;
           border: none;
         }

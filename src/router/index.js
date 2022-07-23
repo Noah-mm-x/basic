@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-const IndexView = () => import(/* webpackChunkName: "index" */ '../views/Index/IndexView.vue')
-const RankView = () => import(/* webpackChunkName: "rank" */ '../views/Rank/IndexView.vue')
+const IndexView = () => import(/* webpackChunkName: "index" */ '../views/Index/Index.vue')
+const RankView = () => import(/* webpackChunkName: "rank" */ '../views/Rank/Index.vue')
 
 Vue.use(VueRouter)
 
