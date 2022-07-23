@@ -5,3 +5,106 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
 
 // table
+.el-table{
+  .cell{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+table{
+  thead{
+    th{
+      padding: 0 !important;
+      div{
+        padding: 8px 0;
+        color: $--color-text-regular;
+        background: #f5f7fa;
+      }
+      &.el-table__cell {
+        > .cell{
+          padding-left: 12px !important;
+        }
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        // 排名
+        .index{
+          text-align: center;
+        }
+        // 商品
+        .goods-wrap{
+          display: flex;
+          justify-content: flex-start;
+          .img{
+            display: block;
+            width: 74px;
+            height: 74px;
+          }
+          .info-wrap{
+              margin-left: 16px;
+              padding-top: 3px;
+              width: 194px; 
+              .title{
+                width: 194px; 
+                height: 44px;
+                color: $--color-text-primary;
+                font-family: PingFang SC;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+                letter-spacing: 0px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+              }
+              .type{
+                margin-top: 4px;
+                color: $--color-text-secondary;
+                font-family: PingFang SC;
+                font-size: 12px;
+                line-height: 20px;
+                letter-spacing: 0px;
+              }
+          }
+        }
+        // 单行文本暗色（淡色）
+        .dark-txt{
+          font-weight: bold;
+          color: $--color-text-regular;
+        }
+         // 单行文本亮色（深色）
+        .bright-txt{
+          font-weight: bold;
+          color: $--color-text-primary;
+        }
+        // 做图右字
+        .img-txt-wrap{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          img{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid #e4e7ed;
+          }
+          p{
+            margin-left: 8px;
+            width: 105px;
+            height: 22px;
+            color: #303133;
+            font-family: PingFang SC;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0px;
+          }
+        }
+      }
+    }
+  }
+}

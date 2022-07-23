@@ -74,32 +74,88 @@
           </ul>
         </div>
       </div>
-      <el-table :data="tableData"
-                style="width: 100%">
+      <el-table :data="tableData">
         <el-table-column prop="rank"
-                         label="排名">
+                         label="排名"
+                         width="60px">
+          <!-- scope.row -->
+          <template slot-scope="rankScope">
+            <div v-if="rankScope.$index == 0"
+                 class="index">
+              <img @click="handleTest(rankScope)"
+                   src="@img/common/1st.svg"
+                   alt="">
+            </div>
+            <div v-else-if="rankScope.$index == 1"
+                 class="index">
+              <img @click="handleTest(rankScope)"
+                   src="@img/common/2nd.svg"
+                   alt="">
+            </div>
+            <div v-else-if="rankScope.$index == 2"
+                 class="index">
+              <img @click="handleTest(rankScope)"
+                   src="@img/common/3rd.svg"
+                   alt="">
+            </div>
+            <div v-else
+                 class="index">{{rankScope.$index}}</div>
+          </template>
         </el-table-column>
         <el-table-column prop="name"
                          label="商品名称"
-                         width="180">
+                         width="320px">
+          <template slot-scope="nameScope">
+            <div class="goods-wrap">
+              <img class="img"
+                   src="@img/common/1.jpeg"
+                   alt="">
+              <div class="info-wrap">
+                <div class="title">(KK) Masker Duckbill 1box 50pcs / Masker Earloop Polos 3D 3ply Mask Earloop Protective(KK) Masker Duckbill 1box 50pcs / Masker Earloop Polos 3D 3ply Mask Earloop Protective</div>
+                <div class="type">女装/女装/女装</div>
+              </div>
+            </div>
+          </template>
         </el-table-column>
         <el-table-column prop="price"
                          label="单价">
+          <template slot-scope="priceScope">
+            <p class="dark-txt">{{priceScope.row.price}}</p>
+          </template>
         </el-table-column>
         <el-table-column prop="saleAdd"
                          label="销量增量">
+          <template slot-scope="saleAddScope">
+            <p class="bright-txt">{{saleAddScope.row.saleAdd}}</p>
+          </template>
         </el-table-column>
         <el-table-column prop="totalNum"
                          label="总销量">
+          <template slot-scope="totalNumScope">
+            <p class="bright-txt">{{totalNumScope.row.totalNum}}</p>
+          </template>
         </el-table-column>
         <el-table-column prop="saleNumAdd"
                          label="销售额增量">
+          <template slot-scope="saleNumAddScope">
+            <p class="bright-txt">{{saleNumAddScope.row.saleNumAdd}}</p>
+          </template>
         </el-table-column>
         <el-table-column prop="totalSale"
                          label="总销售额">
+          <template slot-scope="totalSaleScope">
+            <p class="bright-txt">{{totalSaleScope.row.totalSale}}</p>
+          </template>
         </el-table-column>
         <el-table-column prop="site"
                          label="所属站点">
+          <template slot-scope="siteScope">
+            <div class="img-txt-wrap">
+              <img src="@img/common/1.jpeg"
+                   alt="">
+              <p class="bright-txt">{{siteScope.row.site}}</p>
+            </div>
+          </template>
         </el-table-column>
       </el-table>
     </div>
@@ -209,7 +265,27 @@ export default {
         {
           rank: 1,
           name: 1,
-          price: 1,
+          price: '$45.12',
+          saleAdd: '$544.4K',
+          totalNum: '$544.4K',
+          saleNumAdd: '$544.4K',
+          totalSale: '$544.4K',
+          site: 1
+        },
+        {
+          rank: 1,
+          name: 1,
+          price: '$45.12',
+          saleAdd: '$544.4K',
+          totalNum: '$544.4K',
+          saleNumAdd: '$544.4K',
+          totalSale: '$544.4K',
+          site: 1
+        },
+        {
+          rank: 1,
+          name: 1,
+          price: '$45.12',
           saleAdd: 1,
           totalNum: 1,
           saleNumAdd: 1,
@@ -219,7 +295,7 @@ export default {
         {
           rank: 1,
           name: 1,
-          price: 1,
+          price: '$45.12',
           saleAdd: 1,
           totalNum: 1,
           saleNumAdd: 1,
@@ -229,7 +305,7 @@ export default {
         {
           rank: 1,
           name: 1,
-          price: 1,
+          price: '$45.12',
           saleAdd: 1,
           totalNum: 1,
           saleNumAdd: 1,
@@ -239,27 +315,7 @@ export default {
         {
           rank: 1,
           name: 1,
-          price: 1,
-          saleAdd: 1,
-          totalNum: 1,
-          saleNumAdd: 1,
-          totalSale: 1,
-          site: 1
-        },
-        {
-          rank: 1,
-          name: 1,
-          price: 1,
-          saleAdd: 1,
-          totalNum: 1,
-          saleNumAdd: 1,
-          totalSale: 1,
-          site: 1
-        },
-        {
-          rank: 1,
-          name: 1,
-          price: 1,
+          price: '$45.12',
           saleAdd: 1,
           totalNum: 1,
           saleNumAdd: 1,
@@ -275,6 +331,9 @@ export default {
   methods: {
     handleTabClick () {
 
+    },
+    handleTest (val) {
+      console.log(val)
     }
   }
 }
@@ -344,6 +403,8 @@ export default {
   .item-selecetd-wrap {
     display: flex;
     justify-content: flex-start;
+    padding-top: 12px;
+    margin-bottom: 24px;
     .title {
       width: 56px;
       color: $--color-text-regular;
