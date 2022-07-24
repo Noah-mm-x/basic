@@ -74,7 +74,8 @@
           </ul>
         </div>
       </div>
-      <el-table :data="tableData">
+      <el-table :data="tableData"
+                stripe>
         <el-table-column prop="rank"
                          label="排名"
                          width="60px">
@@ -119,30 +120,65 @@
         </el-table-column>
         <el-table-column prop="price"
                          label="单价">
+          <template slot="header">
+            <div class="sort-wrap">
+              <p>单价</p>
+              <img src="../../assets/img/common/sort.svg"
+                   alt="">
+            </div>
+          </template>
           <template slot-scope="priceScope">
             <p class="dark-txt">{{priceScope.row.price}}</p>
           </template>
         </el-table-column>
         <el-table-column prop="saleAdd"
                          label="销量增量">
+          <template slot="header">
+            <div class="sort-wrap">
+              <p>销量增量</p>
+              <img src="../../assets/img/common/sort.svg"
+                   alt="">
+            </div>
+          </template>
           <template slot-scope="saleAddScope">
             <p class="bright-txt">{{saleAddScope.row.saleAdd}}</p>
           </template>
         </el-table-column>
         <el-table-column prop="totalNum"
                          label="总销量">
+          <template slot="header">
+            <div class="sort-wrap">
+              <p>总销量</p>
+              <img src="../../assets/img/common/sort.svg"
+                   alt="">
+            </div>
+          </template>
           <template slot-scope="totalNumScope">
             <p class="bright-txt">{{totalNumScope.row.totalNum}}</p>
           </template>
         </el-table-column>
         <el-table-column prop="saleNumAdd"
                          label="销售额增量">
+          <template slot="header">
+            <div class="sort-wrap">
+              <p>销售额增量</p>
+              <img src="../../assets/img/common/sort.svg"
+                   alt="">
+            </div>
+          </template>
           <template slot-scope="saleNumAddScope">
             <p class="bright-txt">{{saleNumAddScope.row.saleNumAdd}}</p>
           </template>
         </el-table-column>
         <el-table-column prop="totalSale"
                          label="总销售额">
+          <template slot="header">
+            <div class="sort-wrap">
+              <p>总销售额</p>
+              <img src="../../assets/img/common/sort.svg"
+                   alt="">
+            </div>
+          </template>
           <template slot-scope="totalSaleScope">
             <p class="bright-txt">{{totalSaleScope.row.totalSale}}</p>
           </template>

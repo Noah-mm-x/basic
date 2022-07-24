@@ -15,14 +15,25 @@ table{
   thead{
     th{
       padding: 0 !important;
-      div{
+      >div{
         padding: 8px 0;
         color: $--color-text-regular;
-        background: #f5f7fa;
+        background: $--background-color-base;
       }
       &.el-table__cell {
         > .cell{
           padding-left: 12px !important;
+        }
+      }
+      .sort-wrap{
+        display: flex;
+        justify-content: flex-start;
+        p{
+
+        }
+        img{
+          display: block;
+          margin-left: 8px;
         }
       }
     }
@@ -81,7 +92,7 @@ table{
           font-weight: bold;
           color: $--color-text-primary;
         }
-        // 做图右字
+        // 左图右字
         .img-txt-wrap{
           display: flex;
           justify-content: flex-start;
