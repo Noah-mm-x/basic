@@ -1,3 +1,4 @@
+@import '@css/var.scss';
 * {
   box-sizing: border-box;
   font-family: PingFangSC-Regular;
@@ -160,4 +161,151 @@ body {
   width: 1440px;
   margin: 0 auto;
   padding: 0 120px;
+}
+// tab样式
+.tabs-wrap {
+  position: relative;
+  .expand-wrap {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    color: $--color-info;
+    font-family: PingFang SC;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0px;
+  }
+}
+// 筛选框样式
+.filter-wrap {
+  padding-top: 24px;
+  .item-wrap {
+    display: flex;
+    justify-content: flex-start;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    .title {
+      width: 56px;
+      color: $--color-text-regular;
+      font-family: PingFang SC;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: right;
+      line-height: 32px;
+    }
+    .list {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 24px;
+      li {
+        a {
+          display: block;
+          padding: 0 16px;
+          color: $--color-text-primary;
+          font-family: PingFang SC;
+          font-size: 14px;
+          line-height: 32px;
+          letter-spacing: 0px;
+          border-radius: 4px;
+          &.active {
+            color: #ffffff;
+            background: $--color-primary;
+          }
+        }
+        &.ml {
+          margin-left: 4px;
+        }
+        // 时间选择器
+        .el-date-editor {
+          height: 32px;
+          .el-input__icon {
+            margin-top: -8px;
+          }
+          .el-range-separator {
+            width: 8%;
+            margin-top: -8px;
+          }
+        }
+      }
+    }
+  }
+  .long-line {
+    height: 1px;
+    background: #f2f6fc;
+  }
+  .item-selecetd-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-bottom: 24px;
+    .left-item{
+      display: flex;
+      justify-content: flex-start;
+      .title {
+        width: 56px;
+        color: $--color-text-regular;
+        font-family: PingFang SC;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: right;
+        line-height: 32px;
+      }
+      .list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 32px;
+        padding-left: 24px;
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 16px;
+          height: 22px;
+          border-radius: 4px;
+          background: #f5f7fa;
+          &:not(:last-child) {
+            margin-right: 8px;
+          }
+          div {
+            text-align: center;
+            color: $--color-info;
+            font-family: PingFang SC;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0px;
+          }
+          a {
+            display: block;
+            margin-left: 4px;
+            height: 100%;
+            img {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+    .right-item{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      img{
+        display: block;
+        width: 16px;
+        height: 16px;
+      }
+      p{
+        color: $--color-text-regular;
+        font-family: PingFang SC;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0px;
+      }
+    }
+  }
 }

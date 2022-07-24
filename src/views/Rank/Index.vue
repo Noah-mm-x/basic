@@ -1,13 +1,18 @@
 <template>
   <div id="rank">
     <div class="container rank-container">
-      <el-tabs v-model="tabActiveName"
-               @tab-click="handleTabClick">
-        <el-tab-pane v-for="(item,index) in tabList"
-                     :key="index"
-                     :label="item.label"
-                     :name="item.name"></el-tab-pane>
-      </el-tabs>
+      <div class="tabs-wrap">
+        <el-tabs v-model="tabActiveName"
+                 @tab-click="handleTabClick">
+          <el-tab-pane v-for="(item,index) in tabList"
+                       :key="index"
+                       :label="item.label"
+                       :name="item.name"></el-tab-pane>
+        </el-tabs>
+        <div class="expand-wrap">
+          更新时间：2022.02.45 15:45:24
+        </div>
+      </div>
       <div class="filter-wrap">
         <div class="item-wrap">
           <p class="title">商品分类</p>
@@ -58,23 +63,31 @@
         </div>
         <div class="long-line"></div>
         <div class="item-selecetd-wrap">
-          <p class="title">已选</p>
-          <ul class="list">
-            <li>
-              <div>电子产品/电脑配件/储存器</div>
-              <a href="javascript:;">
-                <img src="@img/common/delete.svg"
-                     alt="">
-              </a>
-            </li>
-            <li>
-              <div>电子产品</div>
-              <a href="javascript:;">
-                <img src="@img/common/delete.svg"
-                     alt="">
-              </a>
-            </li>
-          </ul>
+          <div class="left-item">
+            <p class="title">已选</p>
+            <ul class="list">
+              <li>
+                <div>电子产品/电脑配件/储存器</div>
+                <a href="javascript:;">
+                  <img src="@img/common/delete.svg"
+                       alt="">
+                </a>
+              </li>
+              <li>
+                <div>电子产品</div>
+                <a href="javascript:;">
+                  <img src="@img/common/delete.svg"
+                       alt="">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="javascript:;"
+             class="right-item">
+            <img src="@img/common/drop.svg"
+                 alt="">
+            <p>清除所有条件</p>
+          </a>
         </div>
       </div>
       <el-table :data="tableData"
@@ -397,116 +410,6 @@ export default {
 #rank {
   .rank-container {
     padding-top: 28px;
-  }
-}
-.filter-wrap {
-  padding-top: 24px;
-  .item-wrap {
-    display: flex;
-    justify-content: flex-start;
-    &:not(:last-child) {
-      margin-bottom: 16px;
-    }
-    .title {
-      width: 56px;
-      color: $--color-text-regular;
-      font-family: PingFang SC;
-      font-weight: 600;
-      font-size: 14px;
-      text-align: right;
-      line-height: 32px;
-    }
-    .list {
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 24px;
-      li {
-        a {
-          display: block;
-          padding: 0 16px;
-          color: $--color-text-primary;
-          font-family: PingFang SC;
-          font-size: 14px;
-          line-height: 32px;
-          letter-spacing: 0px;
-          border-radius: 4px;
-          &.active {
-            color: #ffffff;
-            background: $--color-primary;
-          }
-        }
-        &.ml {
-          margin-left: 4px;
-        }
-        // 时间选择器
-        .el-date-editor {
-          height: 32px;
-          :deep(.el-input__icon) {
-            margin-top: -8px;
-          }
-          :deep(.el-range-separator) {
-            width: 8%;
-            margin-top: -8px;
-          }
-        }
-      }
-    }
-  }
-  .long-line {
-    height: 1px;
-    background: #f2f6fc;
-  }
-  .item-selecetd-wrap {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 12px;
-    margin-bottom: 24px;
-    .title {
-      width: 56px;
-      color: $--color-text-regular;
-      font-family: PingFang SC;
-      font-weight: 600;
-      font-size: 14px;
-      text-align: right;
-      line-height: 32px;
-    }
-    .list {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      height: 32px;
-      padding-left: 24px;
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 16px;
-        height: 22px;
-        border-radius: 4px;
-        background: #f5f7fa;
-        &:not(:last-child) {
-          margin-right: 8px;
-        }
-        div {
-          text-align: center;
-          color: $--color-info;
-          font-family: PingFang SC;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 22px;
-          letter-spacing: 0px;
-        }
-        a {
-          display: block;
-          margin-left: 4px;
-          height: 100%;
-          img {
-            width: 14px;
-            height: 14px;
-          }
-        }
-      }
-    }
   }
 }
 </style>
