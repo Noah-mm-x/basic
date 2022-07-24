@@ -13,7 +13,8 @@
           <p class="title">商品分类</p>
           <ul class="list">
             <li v-for="(item,index) in goodsList"
-                :key="index">
+                :key="index"
+                @click="handleGoodsFilter(item,index)">
               <a href="javascript:;"
                  :class="{'active': index === goodsAcitveIndex}">
                 {{item.txt}}
@@ -25,7 +26,8 @@
           <p class="title">国家</p>
           <ul class="list">
             <li v-for="(item,index) in countryList"
-                :key="index">
+                :key="index"
+                @click="handleCountryFilter(item,index)">
               <a href="javascript:;"
                  :class="{'active': index === countryAcitveIndex}">
                 {{item.txt}}
@@ -37,13 +39,14 @@
           <p class="title">统计周期</p>
           <ul class="list">
             <li v-for="(item,index) in timeList"
-                :key="index">
+                :key="index"
+                @click="handleTimeFilter(item,index)">
               <a href="javascript:;"
                  :class="{'active': index === timeAcitveIndex}">
                 {{item.txt}}
               </a>
             </li>
-            <li>
+            <li class="ml">
               <el-date-picker v-model="timeVal"
                               type="daterange"
                               range-separator="至"
@@ -121,11 +124,12 @@
         <el-table-column prop="price"
                          label="单价">
           <template slot="header">
-            <div class="sort-wrap">
+            <a href="javascript:;"
+               class="sort-wrap">
               <p>单价</p>
               <img src="../../assets/img/common/sort.svg"
                    alt="">
-            </div>
+            </a>
           </template>
           <template slot-scope="priceScope">
             <p class="dark-txt">{{priceScope.row.price}}</p>
@@ -134,11 +138,12 @@
         <el-table-column prop="saleAdd"
                          label="销量增量">
           <template slot="header">
-            <div class="sort-wrap">
+            <a href="javascript:;"
+               class="sort-wrap">
               <p>销量增量</p>
               <img src="../../assets/img/common/sort.svg"
                    alt="">
-            </div>
+            </a>
           </template>
           <template slot-scope="saleAddScope">
             <p class="bright-txt">{{saleAddScope.row.saleAdd}}</p>
@@ -147,11 +152,12 @@
         <el-table-column prop="totalNum"
                          label="总销量">
           <template slot="header">
-            <div class="sort-wrap">
+            <a href="javascript:;"
+               class="sort-wrap">
               <p>总销量</p>
               <img src="../../assets/img/common/sort.svg"
                    alt="">
-            </div>
+            </a>
           </template>
           <template slot-scope="totalNumScope">
             <p class="bright-txt">{{totalNumScope.row.totalNum}}</p>
@@ -160,11 +166,12 @@
         <el-table-column prop="saleNumAdd"
                          label="销售额增量">
           <template slot="header">
-            <div class="sort-wrap">
+            <a href="javascript:;"
+               class="sort-wrap">
               <p>销售额增量</p>
               <img src="../../assets/img/common/sort.svg"
                    alt="">
-            </div>
+            </a>
           </template>
           <template slot-scope="saleNumAddScope">
             <p class="bright-txt">{{saleNumAddScope.row.saleNumAdd}}</p>
@@ -173,11 +180,12 @@
         <el-table-column prop="totalSale"
                          label="总销售额">
           <template slot="header">
-            <div class="sort-wrap">
+            <a href="javascript:;"
+               class="sort-wrap">
               <p>总销售额</p>
               <img src="../../assets/img/common/sort.svg"
                    alt="">
-            </div>
+            </a>
           </template>
           <template slot-scope="totalSaleScope">
             <p class="bright-txt">{{totalSaleScope.row.totalSale}}</p>
@@ -366,10 +374,19 @@ export default {
   },
   methods: {
     handleTabClick () {
-
+      console.log('tabActiveName', this.tabActiveName)
     },
     handleTest (val) {
       console.log(val)
+    },
+    handleGoodsFilter (item, index) {
+      this.goodsAcitveIndex = index
+    },
+    handleCountryFilter (item, index) {
+      this.countryAcitveIndex = index
+    },
+    handleTimeFilter (item, index) {
+      this.timeAcitveIndex = index
     }
   }
 }
@@ -417,6 +434,9 @@ export default {
             color: #ffffff;
             background: $--color-primary;
           }
+        }
+        &.ml {
+          margin-left: 4px;
         }
         // 时间选择器
         .el-date-editor {
