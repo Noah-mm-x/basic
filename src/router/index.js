@@ -5,6 +5,9 @@ import HomeView from '../views/HomeView.vue'
 const IndexView = () => import(/* webpackChunkName: "index" */ '../views/Index/Index.vue')
 const RankView = () => import(/* webpackChunkName: "rank" */ '../views/Rank/Index.vue')
 
+const UserView = () => import(/* webpackChunkName: "user" */ '../views/User/Index.vue')
+const SelfView = () => import(/* webpackChunkName: "user" */ '../views/User/Self.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,10 +32,19 @@ const routes = [
   {
     path: '/rank',
     name: 'rank',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: RankView
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: UserView,
+    children: [
+      {
+        // UserProfile 将被渲染到 User 的 <router-view> 内部
+        path: 'self',
+        component: SelfView,
+      },
+    ],
   }
 ]
 

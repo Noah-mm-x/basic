@@ -11,10 +11,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#index{
+#index {
   height: 100%;
-  .container{
-    background: red;
+  .container {
   }
 }
 </style>
