@@ -4,6 +4,10 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
 
+// tab
+.el-tabs__header{
+  margin: 0;
+}
 // table
 .el-table{
   .cell{
@@ -53,6 +57,7 @@ table{
             display: block;
             width: 74px;
             height: 74px;
+            border-radius: 4px;
           }
           .info-wrap{
               margin-left: 16px;

@@ -8,7 +8,8 @@
                    :name="item.name"></el-tab-pane>
     </el-tabs>
     <!-- 基础信息 -->
-    <div class="basic-wrap">
+    <div v-if="false"
+         class="basic-wrap">
       <ul>
         <li>
           <p class="type">用户头像</p>
@@ -62,6 +63,57 @@
         </li>
       </ul>
     </div>
+    <!-- 密码设置 -->
+    <div class="password-setting">
+      <ul>
+        <li>
+          <p>旧密码</p>
+          <div class="input-wrap">
+            <el-input size="small"
+                      placeholder="请输入内容"
+                      v-model="oldPwd">
+            </el-input>
+            <a class="btn"
+               href="javascript:;">
+              <img src="@img/user/see.svg"
+                   alt="">
+            </a>
+          </div>
+        </li>
+        <li>
+          <p>新密码</p>
+          <div class="input-wrap">
+            <el-input size="small"
+                      placeholder="请输入内容"
+                      v-model="newPwd">
+            </el-input>
+            <a class="btn"
+               href="javascript:;">
+              <img src="@img/user/see.svg"
+                   alt="">
+            </a>
+          </div>
+        </li>
+        <li>
+          <p>确认密码</p>
+          <div class="input-wrap">
+            <el-input size="small"
+                      placeholder="请重新输入新密码"
+                      v-model="confirmPwd">
+            </el-input>
+            <a class="btn"
+               href="javascript:;">
+              <img src="@img/user/see.svg"
+                   alt="">
+            </a>
+          </div>
+        </li>
+        <li class="btn-wrap">
+          <el-button type="primary"
+                     size="small">保存</el-button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -82,6 +134,9 @@ export default {
           name: 'second'
         },
       ],
+      oldPwd: '',
+      newPwd: '',
+      confirmPwd: ''
     }
   },
   mounted () {
@@ -185,6 +240,52 @@ export default {
           font-size: 14px;
           line-height: 22px;
           letter-spacing: 0px;
+        }
+      }
+    }
+  }
+}
+.password-setting {
+  ul {
+    width: 380px;
+    padding-top: 24px;
+    li {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 24px;
+      &.btn-wrap {
+        justify-content: flex-end;
+      }
+      p {
+        margin-right: 24px;
+        width: 56px;
+        text-align: right;
+        color: $--color-text-regular;
+        font-family: PingFang SC;
+        font-size: 14px;
+        line-height: 32px;
+        letter-spacing: 0px;
+      }
+      .input-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+        width: 300px;
+        height: 32px;
+        border-radius: 4px;
+        border: 1px solid #dcdfe6;
+        .el-input {
+          height: 30px;
+          :deep(input) {
+            height: 30px;
+            border: none;
+          }
+        }
+        .btn {
+          display: block;
+          width: 16px;
+          height: 16px;
         }
       }
     }

@@ -84,7 +84,7 @@
           </div>
           <a href="javascript:;"
              class="right-item">
-            <img src="@img/common/drop.svg"
+            <img src="@img/common/clear.svg"
                  alt="">
             <p>清除所有条件</p>
           </a>
@@ -94,6 +94,7 @@
                 stripe>
         <el-table-column prop="rank"
                          label="排名"
+                         align="center"
                          width="60px">
           <!-- scope.row -->
           <template slot-scope="rankScope">
